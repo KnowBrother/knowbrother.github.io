@@ -3,7 +3,7 @@
 <head>
 	
 	<meta charset="utf-8">
-	<title>更新日志</title>
+	<title>验证界面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -89,7 +89,7 @@
 					
 					<!-- LOGO -->
 					<div class="logo pull-left">
-						<a href="" ><span class="b5">更新日志</span></a>
+						<a href="" ><span class="b5">验证</span>     <b>安全模式</b></a>
 					</div><!-- //LOGO -->
 					
 					
@@ -116,19 +116,72 @@
 					<!-- ROW -->
 					<div class="row">
 					
-						<div class="col-lg-7 col-md-7 col-sm-7" data-appear-top-offset="-000" data-animated="fadeInLeft">
-							<h3><b>2023/1/30</b> beta v1.0</h3>
-							<p>网站诞生日！</p>
-							<h3><b>2023/2/3</b> beta v1.1</h3>
-							<p>更新了网站部分文字，文章。</p>
-							<h3><b>2023/2/9</b> beta v1.2</h3>
-							<p>重构部分代码，加快部分图片加载速度，加载时间从3分钟缩短至1分半。</p>
-							<h3><b>2023/2/10</b> beta v1.2.1</h3>
-							<p>加快大部分图片加载速度，加载时间从1分半分钟缩短至二十秒。</p>
-							<h3><b>2023/2/11</b> v1.0</h3>
-							<p>增加验证制度，增加加群入口。</p>
-							<!--<a class="btn" href="https://qm.qq.com/cgi-bin/qm/qr?k=bWXXoj9uN4Cfb6LEFtAwhTEtLBhwOuec&jump_from=webapi&authKey=H3o7cBmCGprC1faBb4rglQYQQVmndxIBaU40ZG4wC4Uy3RHqVVC33VyFtK9QAdRo" >加入”学习探讨交流群“</a>!-->
+						<div class="col-lg-7 col-md-7 col-sm-7" data-appear-top-offset="-200" data-animated="fadeInLeft">
+						    <script type="text/javascript">
+						window.onload = function(){
+							//屏蔽键盘事件
+							document.onkeydown = function (){
+								var e = window.event || arguments[0];
+								//F12
+								if(e.keyCode == 123){
+									return false;
+								//Ctrl+Shift+I
+								}else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
+									return false;
+								//Shift+F10
+								}else if((e.shiftKey) && (e.keyCode == 121)){
+									return false;
+								//Ctrl+U
+								}else if((e.ctrlKey) && (e.keyCode == 85)){
+									return false;
+								}
+							};
+							//屏蔽鼠标右键
+							document.oncontextmenu = function (){
+								return false;
+							}
+						}
+
+					</script>
+						<script type="text/javascript">
+							function check(){
+								var name = document.getElementById('username').value;
+								var pwd = document.getElementById('password').value;
+								if(name == null || name == ""){
+									alert("用户名不能为空!");
+									return false;
+								}
+								if(pwd == null || pwd == ""){
+									alert("密码不能为空!");
+									return false;
+								}
+								if(name == "knowbrother" && pwd != "干倒老潘"){
+									alert("第一题正确！第二题错误！");
+									return false;
+								}
+								if(name != "knowbrother" && pwd == "干倒老潘"){
+									alert("第一题错误！第二题正确！");
+									return false;
+								}
+								if(name == "knowbrother" && pwd == "干倒老潘"){
+									alert("恭喜全部正确！按下“确定”以跳转！");
+									window.location="qun";
+								}else{
+									alert("全部错误!");
+								}
+							}
+						</script>
+							<form id="contact-form-face" class="clearfix" action="###" method="post">
+								<p>此界面仅限 <b>2021级7班学生</b> 使用。
+								为确保您是 <b>2021级7班学生</b>，需要验证身份。</p>
+								<p>请在第一个输入框输入懂哥的英文，在第二个输入框输入“七班七班，团结如山，拿起板砖，——————！”的空白部分。<b>（全小写，无空格，无标点）</b>以通过验证。</p>
+								<input type="text" name="name" value="懂哥的英文是？" id="username" onFocus="if (this.value == '懂哥的英文是？') this.value = '';" onBlur="if (this.value == '') this.value = '懂哥的英文是？';" />
+								<input type="text" name="name" value="拿起板砖，——————！" id="password" onFocus="if (this.value == '拿起板砖，——————！') this.value = '';" onBlur="if (this.value == '') this.value = '拿起板砖，——————！';" />
+								<input class="contact_btn" type="button" value="验证" onclick="check()"/>
+							</form>
 						</div>
+						
+
 					</div><!-- //ROW -->
 				</div><!-- //CONTAINER -->
 			</div><!-- //MULTI PURPOSE -->
